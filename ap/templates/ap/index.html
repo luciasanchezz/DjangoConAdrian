@@ -1,0 +1,7 @@
+{% extends 'ap/base.html' %}
+
+{% block content %}
+    {% for producto in productos %}
+        {{producto.marca}}
+    {% endfor %}
+{% endblock %}

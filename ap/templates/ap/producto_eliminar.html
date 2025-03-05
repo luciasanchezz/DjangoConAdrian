@@ -1,0 +1,8 @@
+{% extends 'ap/base.html' %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <p>¿Seguro de que quieres eliminar producto {{producto}}?</p>
+        <input type="submit">        
+    </form>
+{% endblock %}

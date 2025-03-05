@@ -1,0 +1,22 @@
+{% extends 'ap/base.html' %}
+{% block content %}
+    <form method="get">
+        <input  type="text" name="filtro_categoria" placeholder="Buscar por categoria" value="{{request.GET.filtro_categoria}}">
+
+        <select name="filtro_marca" >
+            <option value="">Seleccione una Marca</option>
+            {% for marca in marcas %}
+                <option {% if request.GET.filtro_marca == marca.nombre %} selected {% endif %}>{{marca.nombre}}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Filtrar</button>
+    </form>
+    {% for producto in productos %}
+        <p>{{producto.categoria}}</p>
+        <a href="{% url 'detalle' producto.pk %}">DETALLEEEEEEEEEEE</a>
+        <a href="{% url 'editar' producto.pk %}">Editae</a>
+        <a href="{% url 'eliminar' producto.pk %}">Eliminar</a>
+    {% endfor %}
+    <a href="{% url 'crea' %}">Crea un producto</a>
+{% endblock %}

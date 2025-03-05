@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOLA</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Hola, {{user.first_name}}</p>
+    {% else %}
+        <p>Inicia sesion <a href="{% url 'login' %}">Aqui</a></p>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>
